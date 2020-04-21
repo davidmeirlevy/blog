@@ -1,7 +1,7 @@
 const localhost = '127.0.0.1'
 const port = process.env.PORT || 3000
 module.exports = {
-  mongoUri: process.env.MONGODB_URI || 'mongodb://localhost/greenpress',
+  mongoUri: process.env.MONGODB_URI || 'mongodb://localhost/davidlevy',
   jwtSecret: process.env.JWT_SECRET || 'a secret phrase!!',
   refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET || 'a secret 2 phrase!!',
   secretsServiceSecret: process.env.SECRETS_SERVICE_SECRET || 'ENCRYPT_INTERNAL_DATA',
@@ -31,5 +31,5 @@ module.exports = {
     privileged: 'admin',
     editors: 'editor,admin'
   },
-  frontTheme: process.env.FRONT_THEME || 'default'
+  frontTheme: process.env.FRONT_THEME || 'damal'
 }
