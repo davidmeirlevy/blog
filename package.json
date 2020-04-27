@@ -8,14 +8,15 @@
     "node": "11.x"
   },
   "scripts": {
-    "dev:install": "npm run sync-modules && npm run create-db-dir && npm i && npm run start:init",
+    "dev:install": "npm run sync-modules && npm run create-db-dir && npm i && npm run start:init:dev",
     "create-db-dir": "node helpers/create-db-dir.js",
     "sync-modules": "node helpers/install-sub-modules.js",
     "postinstall": "node ./helpers/postinstall.js",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "pm2-runtime start pm2-dev.config.js --env development",
     "init": "node helpers/init-data.js",
-    "start:init": "(npm run init) & npm start"
+    "start:init": "(npm run init) & npm start",
+    "start:init:dev": "(npm run init) && npm run dev"
   },
   "author": "",
   "license": "MIT",

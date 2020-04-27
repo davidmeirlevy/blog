@@ -1,5 +1,4 @@
-const { spawn, fork } = require('child_process')
-const { mkdirSync } = require('fs')
+const {spawn, fork} = require('child_process')
 const apps = require('./apps')
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -7,7 +6,6 @@ const isDev = process.env.NODE_ENV === 'development'
 if (isDev) {
   // run mongo locally to insert data.
   console.log('run mongo')
-  mkdirSync('db-data')
   const mongo = spawn('mongod', ['--dbpath', './db-data'])
 
   process.once('exit', () => mongo.kill())
@@ -22,7 +20,7 @@ if (isDev) {
   runServicesInits()
 }
 
-function runServicesInits () {
+function runServicesInits() {
   console.log('start populate data')
   Promise.all([
     runServiceInit('content', apps.content.env),
@@ -36,10 +34,10 @@ function runServicesInits () {
   })
 }
 
-function runServiceInit (service, env) {
+function runServiceInit(service, env) {
   console.log('run', service)
   return new Promise((resolve, reject) => {
-    const f = fork('./' + service + '/helpers/init.js', null, { env })
+    const f = fork('./' + service + '/helpers/init.js', null, {env})
 
     f.on('close', () => {
       console.log(service, 'close')
