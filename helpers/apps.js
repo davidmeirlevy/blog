@@ -3,11 +3,19 @@ const config = require('../config')
 const DEV = 'development'
 const PROD = 'production'
 
+const node_args = config.memoryLimitation ?
+  [
+    '--optimize_for_size',
+    '--max_old_space_size=' + parseInt(Number(config.memoryLimitation) * 0.8)
+  ] :
+  ''
+
 const basicHttpServiceOpts = {
   instances: 1,
   autorestart: true,
   watch: false,
   max_memory_restart: '1G',
+  node_args
 }
 
 const authServiceRef = {

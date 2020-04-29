@@ -1,6 +1,7 @@
 const localhost = '127.0.0.1'
 const port = process.env.PORT || 3000
 module.exports = {
+  memoryLimitation: process.env.MAX_MEMORY_USAGE,
   mongoUri: process.env.MONGODB_URI || 'mongodb://localhost/davidlevy',
   jwtSecret: process.env.JWT_SECRET || 'a secret phrase!!',
   refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET || 'a secret 2 phrase!!',
@@ -31,5 +32,5 @@ module.exports = {
     privileged: 'admin',
     editors: 'editor,admin'
   },
-  frontTheme: process.env.FRONT_THEME || 'damal'
+  frontTheme: process.env.FRONT_THEME || 'damal',
 }
