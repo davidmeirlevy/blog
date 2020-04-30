@@ -8,7 +8,7 @@ module.exports = {
   secretsServiceSecret: process.env.SECRETS_SERVICE_SECRET || 'ENCRYPT_INTERNAL_DATA',
   assetsSecretsToken: process.env.ASSETS_SECRETS_TOKEN || 'assets-token-phrase',
   internalServicesSecret: process.env.INTERNAL_SECRET || (Date.now() / Number(Date.now().toString().substring(-5)) * Math.random()).toString(),
-  applicationUrl: process.env.APPLICATION_URL || 'http://' + localhost + ':' + port, //TODO: load app url from app's configurations
+  applicationUrl: process.env.APPLICATION_URL,
   mailProvider: {
     service: process.env.MAIL_PROVIDER_SERVICE || 'gmail',
     email: process.env.MAIL_PROVIDER_EMAIL, // TODO: get email from app's configuration
