@@ -131,12 +131,14 @@ module.exports = {
     env: {
       PORT: config.port,
       THEME: config.frontTheme,
-      NODE_ENV: DEV
+      NODE_ENV: DEV,
+      APPLICATION_URL: config.applicationUrl
     },
     env_production: {
       PORT: config.port,
       THEME: config.frontTheme,
-      NODE_ENV: PROD
+      NODE_ENV: PROD,
+      APPLICATION_URL: config.applicationUrl
     }
   },
   admin: {
