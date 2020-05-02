@@ -33,4 +33,5 @@ module.exports = {
     editors: 'editor,admin'
   },
   frontTheme: process.env.FRONT_THEME || 'damal',
+  redisUrl: process.env.REDIS_URL
 }

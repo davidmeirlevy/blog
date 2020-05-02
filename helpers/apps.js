@@ -36,7 +36,8 @@ const authServiceVariables = {
   MAIL_PROVIDER_EMAIL: config.mailProvider.email,
   MAIL_PROVIDER_AUTH_TYPE: config.mailProvider.authType,
   MAIL_PROVIDER_PW: config.mailProvider.password,
-  APPLICATION_URL: config.applicationUrl
+  APPLICATION_URL: config.applicationUrl,
+  REDIS_URL: config.redisUrl
 }
 
 module.exports = {
@@ -91,6 +92,7 @@ module.exports = {
       IP: config.contentIp,
       ...authServiceRef,
       EDITORS_ROLES: config.roles.editors,
+      REDIS_URL: config.redisUrl
     },
     env_production: {
       MONGO_URI: config.mongoUri,
@@ -98,7 +100,8 @@ module.exports = {
       IP: config.contentIp,
       ...authServiceRef,
       EDITORS_ROLES: config.roles.editors,
-      NODE_ENV: PROD
+      NODE_ENV: PROD,
+      REDIS_URL: config.redisUrl
     }
   },
   assets: {
