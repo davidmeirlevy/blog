@@ -14,7 +14,7 @@ const basicHttpServiceOpts = {
   instances: 1,
   autorestart: true,
   watch: false,
-  max_memory_restart: '1G',
+  max_memory_restart: config.memoryLimitation ? `${config.memoryLimitation}M` : '1G',
   node_args
 }
 
