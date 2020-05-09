@@ -83,7 +83,7 @@ module.exports = {
   },
   content: {
     name: 'content',
-    script: 'cd content && npm start',
+    script: './content/index.js',
     ...basicHttpServiceOpts,
     env: {
       NODE_ENV: DEV,
@@ -129,7 +129,7 @@ module.exports = {
   },
   front: {
     name: 'front',
-    script: 'cd blog-front && npm start',
+    script: './blog-front/server/index.js',
     ...basicHttpServiceOpts,
     env: {
       PORT: config.port,
