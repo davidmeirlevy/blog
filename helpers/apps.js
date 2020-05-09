@@ -129,7 +129,7 @@ module.exports = {
   },
   front: {
     name: 'front',
-    script: './blog-front/server/index.js',
+    script: 'cd blog-front && npm start',
     ...basicHttpServiceOpts,
     env: {
       PORT: config.port,
