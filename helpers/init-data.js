@@ -1,5 +1,6 @@
-const {spawn, fork} = require('child_process')
+const { spawn, fork } = require('child_process')
 const apps = require('./apps')
+const { tenant } = require('../config')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -20,11 +21,11 @@ if (isDev) {
   runServicesInits()
 }
 
-function runServicesInits() {
+function runServicesInits () {
   console.log('start populate data')
   Promise.all([
     runServiceInit('content', apps.content.env),
-    runServiceInit('auth', apps.auth.env)
+    runServiceInit('auth', { ...apps.auth.env, TENANT: tenant })
   ]).then(() => {
     console.log('init data completed successfully!')
     process.exit(0)
@@ -34,10 +35,10 @@ function runServicesInits() {
   })
 }
 
-function runServiceInit(service, env) {
+function runServiceInit (service, env) {
   console.log('run', service)
   return new Promise((resolve, reject) => {
-    const f = fork('./' + service + '/helpers/init.js', null, {env})
+    const f = fork('./' + service + '/helpers/init.js', null, { env })
 
     f.on('close', () => {
       console.log(service, 'close')

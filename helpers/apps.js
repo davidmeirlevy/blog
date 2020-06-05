@@ -135,12 +135,14 @@ module.exports = {
       PORT: config.port,
       THEME: config.frontTheme,
       NODE_ENV: DEV,
+      TENANT: config.tenant,
       APPLICATION_URL: config.applicationUrl
     },
     env_production: {
       PORT: config.port,
       THEME: config.frontTheme,
       NODE_ENV: PROD,
+      TENANT: config.tenant,
       APPLICATION_URL: config.applicationUrl
     }
   },

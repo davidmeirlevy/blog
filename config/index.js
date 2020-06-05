@@ -1,6 +1,7 @@
 const localhost = '127.0.0.1'
 const port = process.env.PORT || 3000
 module.exports = {
+  tenant: process.env.BASIC_TENANT || '0',
   memoryLimitation: process.env.MAX_MEMORY_USAGE,
   mongoUri: process.env.MONGODB_URI || 'mongodb://localhost/davidlevy',
   jwtSecret: process.env.JWT_SECRET || 'a secret phrase!!',
