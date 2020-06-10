@@ -40,13 +40,21 @@ const authServiceVariables = {
   REDIS_URL: config.redisUrl
 }
 
-module.exports = {
-  db: {
+const db = process.argv.includes('--no-docker') ?
+  {
     name: 'db',
     script: 'mongod',
     args: '--dbpath ./db-data',
     instances: 1,
-  },
+  } : {
+    name: 'db',
+    script: 'docker',
+    args: `run -p 27017-27019:27017-27019 -v ${process.cwd()}/db-data:/data/db mongo`,
+    instances: 1
+  }
+
+module.exports = {
+  db,
   secrets: {
     name: 'secrets',
     script: './secrets/index.js',
